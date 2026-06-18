@@ -125,6 +125,78 @@ All endpoints (except auth) require:
 - **Type-safe monorepo** — Shared types across frontend and backend
 - **Production UI** — KPI dashboard, Recharts, command-ready layout
 
+## Deployment
+
+### Architecture
+
+| Service | Platform | Purpose |
+|---------|----------|---------|
+| Frontend (`apps/web`) | [Vercel](https://vercel.com) | Next.js UI |
+| Backend (`apps/api`) | [Railway](https://railway.com) | NestJS API |
+| Database | [Neon](https://neon.tech) or Railway PostgreSQL | PostgreSQL |
+
+### Step 1 — Database (Neon)
+
+1. Create a project at [neon.tech](https://neon.tech)
+2. Copy the **connection string** → this becomes `DATABASE_URL`
+
+### Step 2 — API (Railway)
+
+1. [railway.com](https://railway.com) → **New Project → Deploy from GitHub**
+2. Select `Yokota110/stockflow-ai`
+3. **Settings → Networking → Generate Domain** (public URL 생성)
+4. **Settings → Variables** — add:
+
+| Variable | Value |
+|----------|-------|
+| `DATABASE_URL` | Neon connection string |
+| `JWT_SECRET` | Random 64-char string (e.g. `openssl rand -hex 32`) |
+| `FRONTEND_URL` | `https://placeholder.vercel.app` *(Step 4에서 실제 URL로 교체)* |
+
+5. Deploy completes → copy API URL (e.g. `https://stockflow-api-production.up.railway.app`)
+6. Verify: open `https://your-api-url/v1/health` → should return `{"status":"ok"}`
+
+**Seed demo data** (one-time, run locally):
+
+```bash
+DATABASE_URL="your-neon-url" pnpm db:seed
+```
+
+### Step 3 — Frontend (Vercel)
+
+1. [vercel.com](https://vercel.com) → Import `Yokota110/stockflow-ai`
+2. Set **Root Directory** to `apps/web`
+3. **Environment Variables**:
+
+| Variable | Value |
+|----------|-------|
+| `NEXT_PUBLIC_API_URL` | `https://your-railway-api.up.railway.app/v1` |
+
+4. Deploy, then copy your Vercel URL (e.g. `https://stockflow-ai.vercel.app`)
+
+### Step 4 — Link Frontend ↔ API
+
+Go back to **Railway → Variables** and set:
+
+```
+FRONTEND_URL=https://stockflow-ai.vercel.app
+```
+
+For preview deployments, use comma-separated URLs:
+
+```
+FRONTEND_URL=https://stockflow-ai.vercel.app,https://stockflow-ai-git-main-yokota110.vercel.app
+```
+
+Redeploy the API after updating `FRONTEND_URL`.
+
+### Demo Credentials (after seeding)
+
+```
+Email:    demo@stockflow.app
+Password: password123
+```
+
 ## Author
 
 **横田 伊春 (Yokota Ishun)** — Full Stack Developer · Shiki, Saitama, Japan

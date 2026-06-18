@@ -6,6 +6,8 @@
     "dev:api": "pnpm --filter @stockflow/api dev",
     "dev:web": "pnpm --filter @stockflow/web dev",
     "build": "pnpm --filter @stockflow/shared build && pnpm --filter @stockflow/api build && pnpm --filter @stockflow/web build",
+    "build:api": "pnpm --filter @stockflow/api... build",
+    "start:api": "pnpm --filter @stockflow/api start:prod",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "db:migrate": "pnpm --filter @stockflow/api prisma:migrate",

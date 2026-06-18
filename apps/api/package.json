@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nest build",
+    "build": "prisma generate && nest build",
     "dev": "nest build && nest start --watch",
     "start": "node dist/main",
+    "start:prod": "prisma migrate deploy && node dist/main",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
     "prisma:seed": "ts-node prisma/seed.ts",
     "prisma:studio": "prisma studio"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.7",
