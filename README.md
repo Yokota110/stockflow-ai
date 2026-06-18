@@ -12,7 +12,7 @@ Production-grade Inventory Management Platform — a full-stack SaaS application
 <p align="center">
   <img src="docs/stockflow-demo.gif" alt="StockFlow full demo walkthrough (2 min)" width="800">
   <br>
-  <sub>Full 2-minute product walkthrough · <a href="https://github.com/Fluffie2002/stockflow-saas/blob/main/docs/demo.mp4">HD video (MP4)</a></sub>
+  <sub>Full 2-minute product walkthrough · <a href="https://github.com/Yokota110/stockflow-ai/blob/main/docs/demo.mp4">HD video (MP4)</a></sub>
 </p>
 
 ### Screenshots
@@ -127,7 +127,17 @@ All endpoints (except auth) require:
 
 ## Author
 
-**横田 伊春 (Yokota Ishun)** — [richunyokota93@gmail.com](mailto:richunyokota93@gmail.com)
+**横田 伊春 (Yokota Ishun)** — Full Stack Developer · Shiki, Saitama, Japan
+
+Portfolio project showcasing end-to-end SaaS development — from multi-tenant API design to production UI.
+
+| | |
+|---|---|
+| **GitHub** | [Yokota110/stockflow-ai](https://github.com/Yokota110/stockflow-ai) |
+| **Email** | [richunyokota93@gmail.com](mailto:richunyokota93@gmail.com) |
+| **Languages** | Chinese (native) · Japanese (JLPT N2) · English (business) |
+| **Experience** | Neusoft → Neusoft Reach (2015–2022) · Freelance Full Stack Developer (2023–present) |
+| **Stack** | TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL, AWS, Docker |
 
 ## License
 
