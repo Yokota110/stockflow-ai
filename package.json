@@ -1,0 +1,19 @@
+{
+  "name": "stockflow",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter @stockflow/api dev\" \"pnpm --filter @stockflow/web dev\"",
+    "dev:api": "pnpm --filter @stockflow/api dev",
+    "dev:web": "pnpm --filter @stockflow/web dev",
+    "build": "pnpm --filter @stockflow/shared build && pnpm --filter @stockflow/api build && pnpm --filter @stockflow/web build",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:migrate": "pnpm --filter @stockflow/api prisma:migrate",
+    "db:seed": "pnpm --filter @stockflow/api prisma:seed",
+    "db:studio": "pnpm --filter @stockflow/api prisma:studio"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
