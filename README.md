@@ -9,6 +9,18 @@ Production-grade inventory management platform for Japanese SMEs.
 
 ## Demo
 
+### App Walkthrough
+
+<p align="center">
+  <img src="docs/demo.gif" alt="StockFlow app walkthrough — dashboard, products, inventory, suppliers, purchase orders, and analytics" width="960">
+  <br>
+  <sub>End-to-end walkthrough of the Japan demo workspace (JPY, Asia/Tokyo, 10% consumption tax)</sub>
+  <br>
+  <sub><a href="docs/demo.mp4">▶ Watch full HD demo video (MP4)</a></sub>
+</p>
+
+> GitHub README renders GIF previews reliably. For the full-quality recording, use the MP4 link above.
+
 <p align="center">
   <img src="docs/japan-warehouse-hero.png" alt="StockFlow Japan warehouse operations hero" width="800">
   <br>
@@ -17,7 +29,21 @@ Production-grade inventory management platform for Japanese SMEs.
 
 ### Screenshots
 
-Fresh screenshots should be regenerated after running `pnpm prisma:seed` with the Japan demo data. The bundled preview assets now use the Japan warehouse operations visual.
+| Dashboard | Products | Inventory |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/01-dashboard.png" alt="Dashboard KPIs and inventory health" width="420"> | <img src="docs/screenshots/02-products.png" alt="Product catalog with search and filters" width="420"> | <img src="docs/screenshots/03-inventory.png" alt="Stock in/out and movement ledger" width="420"> |
+
+| Suppliers | Purchase Orders | Analytics |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/04-suppliers.png" alt="Supplier CRM profiles" width="420"> | <img src="docs/screenshots/05-purchase-orders.png" alt="Purchase order lifecycle" width="420"> | <img src="docs/screenshots/06-analytics.png" alt="Inventory aging and category performance" width="420"> |
+
+Regenerate preview assets after seeding Japan demo data:
+
+```bash
+pnpm db:seed
+pnpm dev
+pnpm capture:screenshots   # requires dev server on :3000
+```
 
 ## Features
 
@@ -93,8 +119,12 @@ stockflow/
 |-- packages/
 |   `-- shared/       # Shared TypeScript types and enums
 |-- docs/
+|   |-- demo.gif
+|   |-- demo.mp4
 |   |-- japan-warehouse-hero.png
 |   `-- screenshots/
+|-- scripts/
+|   `-- capture-screenshots.mjs
 |-- docker-compose.yml
 `-- package.json
 ```
