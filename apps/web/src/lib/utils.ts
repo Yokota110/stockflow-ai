@@ -5,12 +5,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatCurrency(value: number, currency = 'MYR') {
-  return new Intl.NumberFormat('en-MY', { style: 'currency', currency }).format(value);
+export function formatCurrency(value: number, currency = 'JPY') {
+  return new Intl.NumberFormat('ja-JP', { style: 'currency', currency, maximumFractionDigits: 0 }).format(value);
 }
 
 export function formatDate(date: string | Date) {
-  return new Intl.DateTimeFormat('en-US', {
+  return new Intl.DateTimeFormat('ja-JP', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
@@ -18,8 +18,9 @@ export function formatDate(date: string | Date) {
 }
 
 export function formatAxisCurrency(value: number) {
-  if (value >= 1000) return `RM ${(value / 1000).toFixed(0)}k`;
-  return `RM ${value}`;
+  if (value >= 1000000) return `¥${(value / 1000000).toFixed(1)}M`;
+  if (value >= 1000) return `¥${(value / 1000).toFixed(0)}k`;
+  return `¥${value}`;
 }
 
 export function formatNumber(value: number) {

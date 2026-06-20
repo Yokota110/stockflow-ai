@@ -52,7 +52,7 @@ export default function SupplierDetailPage() {
               <h1 className="text-2xl font-bold">{s.name as string}</h1>
               <Badge variant={s.isActive ? 'success' : 'muted'}>{s.isActive ? 'Active' : 'Inactive'}</Badge>
             </div>
-            <p className="text-muted-foreground">{s.contactPerson as string} · {s.city as string}, Malaysia</p>
+            <p className="text-muted-foreground">{s.contactPerson as string} - {s.city as string}, Japan</p>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function SupplierDetailPage() {
             <div>
               <p className="text-xs text-muted-foreground">Last Order</p>
               <p className="text-sm font-semibold">
-                {stats?.lastOrderDate ? formatDate(stats.lastOrderDate as string) : '—'}
+                {stats?.lastOrderDate ? formatDate(stats.lastOrderDate as string) : '-'}
               </p>
             </div>
           </CardContent>
@@ -93,7 +93,7 @@ export default function SupplierDetailPage() {
             <div>
               <p className="text-xs text-muted-foreground">Avg Delivery</p>
               <p className="text-xl font-bold">
-                {stats?.avgDeliveryDays ? `${stats.avgDeliveryDays} days` : '—'}
+                {stats?.avgDeliveryDays ? `${stats.avgDeliveryDays} days` : '-'}
               </p>
             </div>
           </CardContent>
@@ -105,8 +105,8 @@ export default function SupplierDetailPage() {
           <CardContent className="p-4 flex items-center gap-3">
             <div className="rounded-lg bg-success/10 p-2"><CheckCircle2 className="h-4 w-4 text-success" /></div>
             <div>
-              <p className="text-xs text-muted-foreground">Supplier Score — Reliability</p>
-              <p className="text-2xl font-bold">{(stats?.reliabilityScore as number) ?? '—'}%</p>
+              <p className="text-xs text-muted-foreground">Supplier Score - Reliability</p>
+              <p className="text-2xl font-bold">{(stats?.reliabilityScore as number) ?? '-'}%</p>
             </div>
           </CardContent>
         </Card>
@@ -114,9 +114,9 @@ export default function SupplierDetailPage() {
           <CardContent className="p-4 flex items-center gap-3">
             <div className="rounded-lg bg-warning/10 p-2"><TrendingUp className="h-4 w-4 text-warning" /></div>
             <div>
-              <p className="text-xs text-muted-foreground">Supplier Score — On-Time Delivery</p>
+              <p className="text-xs text-muted-foreground">Supplier Score - On-Time Delivery</p>
               <p className="text-2xl font-bold">
-                {stats?.onTimeRate !== null && stats?.onTimeRate !== undefined ? `${stats.onTimeRate}%` : '—'}
+                {stats?.onTimeRate !== null && stats?.onTimeRate !== undefined ? `${stats.onTimeRate}%` : '-'}
               </p>
             </div>
           </CardContent>
@@ -129,17 +129,17 @@ export default function SupplierDetailPage() {
           <CardContent className="space-y-4 text-sm">
             <div className="flex items-start gap-3">
               <Mail className="h-4 w-4 text-muted-foreground mt-0.5" />
-              <div><p className="text-xs text-muted-foreground">Email</p><p>{(s.email as string) || '—'}</p></div>
+              <div><p className="text-xs text-muted-foreground">Email</p><p>{(s.email as string) || '-'}</p></div>
             </div>
             <div className="flex items-start gap-3">
               <Phone className="h-4 w-4 text-muted-foreground mt-0.5" />
-              <div><p className="text-xs text-muted-foreground">Phone</p><p>{(s.phone as string) || '—'}</p></div>
+              <div><p className="text-xs text-muted-foreground">Phone</p><p>{(s.phone as string) || '-'}</p></div>
             </div>
             <div className="flex items-start gap-3">
               <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
               <div>
                 <p className="text-xs text-muted-foreground">Address</p>
-                <p>{(s.address as string) || '—'}</p>
+                <p>{(s.address as string) || '-'}</p>
                 <p className="text-muted-foreground">{s.city as string}, {s.country as string}</p>
               </div>
             </div>
@@ -167,7 +167,7 @@ export default function SupplierDetailPage() {
                 <p className="text-xs text-muted-foreground mt-1">Fulfillment Rate</p>
               </div>
               <div className="text-center p-4 rounded-lg bg-muted/30">
-                <p className="text-2xl font-bold">{(stats?.onTimeRate as number) ?? '—'}{stats?.onTimeRate !== null ? '%' : ''}</p>
+                <p className="text-2xl font-bold">{(stats?.onTimeRate as number) ?? '-'}{stats?.onTimeRate !== null ? '%' : ''}</p>
                 <p className="text-xs text-muted-foreground mt-1">On-Time Rate</p>
               </div>
             </div>

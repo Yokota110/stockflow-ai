@@ -80,8 +80,8 @@ export default function ProductDetailPage() {
           <Card>
             <CardContent className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div><span className="text-muted-foreground">Category:</span> {product.category?.name || '—'}</div>
-                <div><span className="text-muted-foreground">Barcode:</span> <span className="font-mono">{product.barcode || '—'}</span></div>
+                <div><span className="text-muted-foreground">Category:</span> {product.category?.name || '-'}</div>
+                <div><span className="text-muted-foreground">Barcode:</span> <span className="font-mono">{product.barcode || '-'}</span></div>
                 <div><span className="text-muted-foreground">Unit:</span> {product.unit}</div>
                 <div><span className="text-muted-foreground">Status:</span> {product.isActive ? 'Active' : 'Inactive'}</div>
               </div>
@@ -110,7 +110,7 @@ export default function ProductDetailPage() {
                       <td className="p-4"><MovementTypeBadge type={m.type as string} /></td>
                       <td className="p-4 text-right font-mono">{(m.quantity as number) > 0 ? '+' : ''}{m.quantity as number}</td>
                       <td className="p-4 text-right">{m.newStock as number}</td>
-                      <td className="p-4 text-muted-foreground">{(m.reference as string) || '—'}</td>
+                      <td className="p-4 text-muted-foreground">{(m.reference as string) || '-'}</td>
                     </tr>
                   ))}
                 </tbody>

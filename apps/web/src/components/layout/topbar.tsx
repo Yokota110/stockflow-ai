@@ -75,7 +75,7 @@ export function Topbar() {
                         </div>
                         <p className="text-xs text-muted-foreground font-mono">{product?.sku}</p>
                         <p className="text-xs text-muted-foreground">
-                          {product?.currentStock} units · threshold {alert.threshold as number} · {formatDate(alert.createdAt as string)}
+                          {product?.currentStock} units - threshold {alert.threshold as number} - {formatDate(alert.createdAt as string)}
                         </p>
                       </Link>
                     </DropdownMenuItem>

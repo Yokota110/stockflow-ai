@@ -17,8 +17,8 @@ import { Building2, Users, Bell, Palette, Loader2, Save, UserPlus, Moon, Sun } f
 import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 
-const CURRENCIES = ['MYR', 'USD', 'SGD', 'EUR'];
-const TIMEZONES = ['Asia/Kuala_Lumpur', 'Asia/Singapore', 'Asia/Jakarta', 'UTC'];
+const CURRENCIES = ['JPY', 'USD', 'EUR', 'SGD'];
+const TIMEZONES = ['Asia/Tokyo', 'Asia/Seoul', 'Asia/Singapore', 'UTC'];
 const ROLES = ['OWNER', 'ADMIN', 'MANAGER', 'STAFF', 'VIEWER'];
 
 export default function SettingsPage() {
@@ -26,7 +26,7 @@ export default function SettingsPage() {
   const queryClient = useQueryClient();
   const orgId = currentOrg?.organization.id;
 
-  const [orgForm, setOrgForm] = useState({ name: '', currency: 'MYR', timezone: 'Asia/Kuala_Lumpur', taxRate: '0.06' });
+  const [orgForm, setOrgForm] = useState({ name: '', currency: 'JPY', timezone: 'Asia/Tokyo', taxRate: '0.10' });
   const [notifications, setNotifications] = useState({ emailAlerts: true, lowStock: true, poUpdates: true });
   const [appearance, setAppearance] = useState({ compactMode: false, darkMode: false });
   const [showInvite, setShowInvite] = useState(false);
@@ -51,7 +51,7 @@ export default function SettingsPage() {
         name: o.name as string,
         currency: o.currency as string,
         timezone: o.timezone as string,
-        taxRate: String(o.taxRate || 0.06),
+        taxRate: String(o.taxRate || 0.10),
       });
     }
   }, [org]);
@@ -158,9 +158,9 @@ export default function SettingsPage() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label>Tax Rate (SST)</Label>
+                    <Label>Tax Rate (Consumption Tax)</Label>
                     <Input type="number" step="0.01" min="0" max="1" value={orgForm.taxRate} onChange={(e) => setOrgForm({ ...orgForm, taxRate: e.target.value })} disabled={!isAdmin} />
-                    <p className="text-xs text-muted-foreground">Malaysian SST is typically 6% (0.06)</p>
+                    <p className="text-xs text-muted-foreground">Japan consumption tax is typically 10% (0.10)</p>
                   </div>
                   {isAdmin && (
                     <Button onClick={() => updateOrgMutation.mutate()} disabled={updateOrgMutation.isPending}>
@@ -331,7 +331,7 @@ export default function SettingsPage() {
               <Label>Email Address</Label>
               <Input
                 type="email"
-                placeholder="colleague@company.my"
+                placeholder="colleague@company.jp"
                 value={inviteEmail}
                 onChange={(e) => setInviteEmail(e.target.value)}
               />

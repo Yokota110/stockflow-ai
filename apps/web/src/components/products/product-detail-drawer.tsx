@@ -56,8 +56,8 @@ export function ProductDetailDrawer({ productId, onClose, onEdit }: ProductDetai
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Product Information</h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div><p className="text-muted-foreground text-xs">SKU</p><p className="font-mono font-medium">{product.sku as string}</p></div>
-              <div><p className="text-muted-foreground text-xs">Category</p><p>{(product.category as { name: string })?.name || '—'}</p></div>
-              <div><p className="text-muted-foreground text-xs">Supplier</p><p>{supplier?.name || '—'}</p></div>
+              <div><p className="text-muted-foreground text-xs">Category</p><p>{(product.category as { name: string })?.name || '-'}</p></div>
+              <div><p className="text-muted-foreground text-xs">Supplier</p><p>{supplier?.name || '-'}</p></div>
               <div><p className="text-muted-foreground text-xs">Unit</p><p>{product.unit as string}</p></div>
               <div><p className="text-muted-foreground text-xs">Cost Price</p><p className="font-medium">{formatCurrency(product.costPrice as number)}</p></div>
               <div><p className="text-muted-foreground text-xs">Selling Price</p><p className="font-medium text-primary">{formatCurrency(product.unitPrice as number)}</p></div>
@@ -101,7 +101,7 @@ export function ProductDetailDrawer({ productId, onClose, onEdit }: ProductDetai
               </div>
               <div className="rounded-lg bg-muted/40 p-3">
                 <Clock className="h-3.5 w-3.5 text-muted-foreground mb-1" />
-                <p className="text-lg font-bold">{performance?.daysRemaining ?? '—'}</p>
+                <p className="text-lg font-bold">{performance?.daysRemaining ?? '-'}</p>
                 <p className="text-[10px] text-muted-foreground">Days of Stock</p>
               </div>
             </div>

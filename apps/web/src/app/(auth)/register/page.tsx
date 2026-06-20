@@ -35,16 +35,22 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen">
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-primary/80 to-indigo-900 p-12 flex-col justify-between text-white">
-        <div className="flex items-center gap-3">
-          <Boxes className="h-8 w-8" />
+      <div
+        className="relative hidden overflow-hidden lg:flex lg:w-1/2 flex-col justify-between bg-cover bg-center p-12 text-white"
+        style={{ backgroundImage: "url('/images/japan-warehouse-hero.png')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-950/55 to-slate-950/15" />
+        <div className="relative flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/20 backdrop-blur">
+            <Boxes className="h-5 w-5" />
+          </div>
           <span className="text-2xl font-bold">StockFlow</span>
         </div>
-        <div>
-          <h1 className="text-4xl font-bold leading-tight mb-4">Start managing<br />your inventory today.</h1>
-          <p className="text-lg text-white/80">Free 14-day trial. No credit card required.</p>
+        <div className="relative max-w-lg">
+          <h1 className="text-4xl font-bold leading-tight mb-4">Launch a sharper<br />inventory workspace.</h1>
+          <p className="text-lg text-white/80">Designed around Japanese inventory, purchasing, and supplier workflows.</p>
         </div>
-        <p className="text-sm text-white/60">Join thousands of businesses on StockFlow</p>
+        <p className="relative text-sm text-white/65">Japan-ready defaults from day one</p>
       </div>
 
       <div className="flex flex-1 items-center justify-center p-8">

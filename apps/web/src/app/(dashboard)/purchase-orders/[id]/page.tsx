@@ -166,13 +166,13 @@ export default function PurchaseOrderDetailPage() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <div className="flex justify-between"><span className="text-muted-foreground">Order Date</span><span className="font-medium">{formatDate(order.orderDate as string)}</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Expected Delivery</span><span>{order.expectedDate ? formatDate(order.expectedDate as string) : '—'}</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Expected Delivery</span><span>{order.expectedDate ? formatDate(order.expectedDate as string) : '-'}</span></div>
             {order.receivedDate ? (
               <div className="flex justify-between"><span className="text-muted-foreground">Received Date</span><span className="text-success font-medium">{formatDate(order.receivedDate as string)}</span></div>
             ) : null}
             <Separator />
             <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span>{formatCurrency(order.subtotal as number)}</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">SST (6%)</span><span>{formatCurrency(order.tax as number)}</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Consumption Tax (10%)</span><span>{formatCurrency(order.tax as number)}</span></div>
             <div className="flex justify-between font-semibold"><span>Total</span><span className="text-lg">{formatCurrency(order.total as number)}</span></div>
             {order.notes ? (
               <>

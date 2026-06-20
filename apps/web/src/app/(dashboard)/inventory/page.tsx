@@ -94,7 +94,7 @@ export default function InventoryPage() {
                             {(m.quantity as number) > 0 ? '+' : ''}{m.quantity as number}
                           </span>
                         </td>
-                        <td className="p-4 text-muted-foreground">{(m.reference as string) || '—'}</td>
+                        <td className="p-4 text-muted-foreground">{(m.reference as string) || '-'}</td>
                         <td className="p-4 text-muted-foreground">
                           {(m.performedBy as { firstName: string; lastName: string })?.firstName}{' '}
                           {(m.performedBy as { firstName: string; lastName: string })?.lastName}

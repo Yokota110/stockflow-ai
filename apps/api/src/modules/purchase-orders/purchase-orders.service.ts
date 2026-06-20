@@ -217,7 +217,7 @@ export class PurchaseOrdersService {
 
   private async getTaxRate(orgId: string) {
     const org = await this.prisma.organization.findUnique({ where: { id: orgId }, select: { taxRate: true } });
-    return toNumber(org?.taxRate ?? 0.06);
+    return toNumber(org?.taxRate ?? 0.10);
   }
 
   private async generatePONumber(orgId: string) {

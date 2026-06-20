@@ -95,7 +95,7 @@ export default function ProductsPage() {
                         <span className="font-medium">{product.name}</span>
                       </td>
                       <td className="p-4 font-mono text-muted-foreground">{product.sku}</td>
-                      <td className="p-4 text-muted-foreground">{product.category?.name || '—'}</td>
+                      <td className="p-4 text-muted-foreground">{product.category?.name || '-'}</td>
                       <td className="p-4">
                         <StockBadge stock={product.currentStock} reorderPoint={product.reorderPoint} />
                       </td>

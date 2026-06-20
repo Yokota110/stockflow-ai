@@ -9,8 +9,8 @@ import { Toaster } from 'sonner';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'StockFlow — Inventory Management',
-  description: 'Production-grade inventory management platform for modern businesses',
+  title: 'StockFlow - Inventory Management',
+  description: 'Production-grade inventory management platform for Japanese businesses',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -30,22 +30,26 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen">
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-primary/80 to-indigo-900 p-12 flex-col justify-between text-white">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20">
+      <div
+        className="relative hidden overflow-hidden lg:flex lg:w-1/2 flex-col justify-between bg-cover bg-center p-12 text-white"
+        style={{ backgroundImage: "url('/images/japan-warehouse-hero.png')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-950/55 to-slate-950/15" />
+        <div className="relative flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/20 backdrop-blur">
             <Boxes className="h-5 w-5" />
           </div>
           <span className="text-2xl font-bold">StockFlow</span>
         </div>
-        <div>
+        <div className="relative max-w-lg">
           <h1 className="text-4xl font-bold leading-tight mb-4">
-            Inventory management,<br />reimagined.
+            Inventory operations,<br />built for Japan.
           </h1>
           <p className="text-lg text-white/80 max-w-md">
-            Track stock, manage suppliers, and gain insights — all in one beautiful platform built for modern businesses.
+            Track stock, manage suppliers, and monitor purchasing from one calm, precise workspace.
           </p>
         </div>
-        <p className="text-sm text-white/60">Trusted by 2,000+ businesses worldwide</p>
+        <p className="relative text-sm text-white/65">Tokyo Supply Works demo - JPY, Asia/Tokyo, 10% consumption tax</p>
       </div>
 
       <div className="flex flex-1 items-center justify-center p-8">

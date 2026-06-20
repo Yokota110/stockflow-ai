@@ -101,7 +101,7 @@ export default function AnalyticsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Analytics</h1>
-        <p className="text-muted-foreground">Business insights for Acme Supplies Co.</p>
+        <p className="text-muted-foreground">Business insights for Tokyo Supply Works</p>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-4">
@@ -278,7 +278,7 @@ export default function AnalyticsPage() {
                     </td>
                     <td className="p-3 text-right">{item.currentStock}</td>
                     <td className="p-3 text-right font-medium">
-                      {item.daysUntilStockout !== null ? `${item.daysUntilStockout}d` : '—'}
+                      {item.daysUntilStockout !== null ? `${item.daysUntilStockout}d` : '-'}
                     </td>
                     <td className="p-3 text-right"><UrgencyBadge urgency={item.urgency} /></td>
                   </tr>
@@ -384,7 +384,7 @@ export default function AnalyticsPage() {
                   <tr key={s.supplierId} className="border-b hover:bg-muted/30 transition-colors">
                     <td className="p-3 font-medium">{s.name}</td>
                     <td className="p-3 text-right">{formatCurrency(s.totalSpend)}</td>
-                    <td className="p-3 text-right">{(s as { reliabilityScore?: number }).reliabilityScore ?? '—'}%</td>
+                    <td className="p-3 text-right">{(s as { reliabilityScore?: number }).reliabilityScore ?? '-'}%</td>
                     <td className="p-3 text-right">{s.onTimeRate}%</td>
                   </tr>
                 ))}

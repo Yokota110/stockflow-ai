@@ -116,7 +116,7 @@ export function StockActionDialog({ type, open, onOpenChange }: StockActionDialo
               <SelectContent>
                 {productList.map((p) => (
                   <SelectItem key={p.id} value={p.id}>
-                    {p.name} ({p.sku}) — {p.currentStock} in stock
+                    {p.name} ({p.sku}) - {p.currentStock} in stock
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -171,7 +171,7 @@ export function StockActionDialog({ type, open, onOpenChange }: StockActionDialo
               </div>
               <div className="space-y-2">
                 <Label>Customer / Department</Label>
-                <Input value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="e.g. Sales Dept, ABC Trading Sdn Bhd" />
+                <Input value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="e.g. Sales Dept, Nihon Trading KK" />
               </div>
             </>
           )}
